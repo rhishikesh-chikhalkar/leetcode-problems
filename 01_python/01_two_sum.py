@@ -14,3 +14,14 @@ class Solution:
             seen[num] = i
 
         return []
+
+
+def run_test(nums: List[int], target: int) -> None:
+    result = Solution().two_sum(nums, target)
+    print(f"nums={nums} target={target} --> result={result}")
+
+
+if __name__ == "__main__":
+    run_test([2, 7, 11, 15], 9)
+    run_test([3, 2, 4], 6)
+    run_test([3, 3], 6)
