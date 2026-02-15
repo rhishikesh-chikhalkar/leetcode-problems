@@ -1,12 +1,20 @@
-# Definition for singly-linked list.
+"""
+Adding two numbers using linked list
+"""
+
+from typing import Optional
+
+
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val: int = 0, next_node: Optional["ListNode"] = None):
         self.val = val
-        self.next = next
+        self.next = next_node
 
 
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         dummy = ListNode(0)
         current = dummy
         carry = 0
@@ -32,7 +40,7 @@ class Solution:
 # ---------- Helper Functions for Testing ----------
 
 
-def build_linked_list(values):
+def build_linked_list(values: list[int]) -> Optional[ListNode]:
     dummy = ListNode(0)
     current = dummy
     for val in values:
@@ -41,15 +49,15 @@ def build_linked_list(values):
     return dummy.next
 
 
-def linked_list_to_list(node):
-    result = []
+def linked_list_to_list(node: Optional[ListNode]) -> list[int]:
+    result: list[int] = []
     while node:
         result.append(node.val)
         node = node.next
     return result
 
 
-def run_test(l1_vals, l2_vals):
+def run_test(l1_vals: list[int], l2_vals: list[int]) -> None:
     l1 = build_linked_list(l1_vals)
     l2 = build_linked_list(l2_vals)
     result = Solution().addTwoNumbers(l1, l2)
